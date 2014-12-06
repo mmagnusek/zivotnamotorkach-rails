@@ -1,0 +1,78 @@
+= render 'application/menu'
+#top.section
+  .container
+    .header
+      h1
+        | On the road
+        span.year
+          | 2013
+          span/
+      p
+        strong Láká mě poznání nespoutané přírody a dobrosrdečných lidí.
+      p Míst na zemi, které zůstavají nedotčené moderní dobou rychle ubývá a proto jsem se rozhodl pro cestu z centra Evropy až do zemí, kde ještě převládá kočovný způsob života, kde příroda hraje hlavní roli v životě většiny obyvatel, místa jejichž historie sahá daleko před náš letopočet.
+      a.btn.btn-default href="https://www.facebook.com/ZivotNaMotorkach" target="_blank"  Život na motorkách na FB
+    a.btn.btn-primary.btn-large href="#support" Podpořte mě
+
+#trip.section
+  .container
+    .row
+      .col-sm-7
+        = image_tag image_path('bike.png'), alt: 'BMW R1200GS Adventure'
+      .col-sm-5
+        ul.list-unstyled.list-facts
+          li
+            h3 18 500 km
+            span ujetá vzdálenost na motorce
+          li
+            h3 980 litrů
+            span benzínu
+          li
+            h3 54 dní
+            span v sedle motorky
+
+#trip-desc
+  .desc
+    h3 Plán cesty
+    p
+      | Cestou hedvábné stezky na území nynějšího Uzbekistánu, přes jeho pouště a bývalá tržiště hedvábné stezky do Tadžikistánu a cestou zvanou Pamir Highway do Kyrgystánu. Dále pak přez největší vnitrozemský stát světa Kazachstán do Mongolska za kočovníky a nedotčenou přírodou.
+    .arrow
+  .gmap
+    = image_tag image_path('mapa.jpg'), alt: "Mapa Trasy z Náchoda do Mongolska"
+
+#me.section
+  .container
+    .row
+      .col-md-4
+        h2 Martin Magnusek
+        p.lead 26, inženýr, IT odborník, trochu workoholik, flegmatik a milovník motorek.
+      .col-md-8
+        = image_tag image_path('magnusek.jpg')
+        p Aktivně jezdím od 15 let. Se vším co má motor jsem procestoval většinu Evropy. Nejdelší cestou na motorce byla výprava do Istanbulu a zpět se zastávkami v Rumunsku, Bulharsku, Turecku, Řecku, Makedonii, Albánii a Černé Hoře.
+        p Mým současným cílem je realizace moto expedice do Kyrgyzstánu a Mongolska. Rád poznávám nová místa a lidi a vše co mi připomíná, že kromě programování je okolo mě celý svět který se dá objevovat na dvou kolech.
+
+#support.section
+  .container
+    .row
+      .col-md-4
+        h2 Podpořte mě
+        p.lead Nebojím se říct, že každá pomoc mi velmi pomůže a budu za ni vděčný.
+      .col-md-8
+        p Realizace podobné cesty je velmi nákladná, proto budu rád za finanční podporu v jakékoli výši. Stejně nápomocné je i cestovního vybavení (např. spacák nebo stan).
+        p Za podporu mohu nabídnout kromě dobrého pocitu také reklamní plochy na motorce. V průběhu celé cesty budu fotit a pravidělně publikovat na blogu a facebooku, kde poskytnu také prostor, takže Vaše reklama bude vidět.
+        p
+          | Martin Magnusek
+          br
+          | Ve Smrčinách 60
+          br
+          | 547 01  Náchod
+          br
+          | magnusekm@gmail.com
+          br
+          | 670100-2203661326/6210
+        form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top"
+          input name="cmd" type="hidden" value="_s-xclick" /
+          input name="encrypted" type="hidden" value="-----BEGIN PKCS7-----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-----END PKCS7-----\n        "
+          input alt="PayPal - The safer), easier way to pay online!" border="0" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" type="image"
+          img alt="" border="0" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
+        .fb-like data-font="verdana" data-href="https://www.facebook.com/ZivotNaMotorkach" data-layout="button_count" data-send="false" data-show-faces="true" data-width="450"
+        p Díky za jakoukoli podporu!

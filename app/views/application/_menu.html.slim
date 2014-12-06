@@ -1,0 +1,16 @@
+#navigation.navbar.navbar-inverse.navbar-fixed-top
+  .container
+    .navbar-header
+      button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9"
+        span class="sr-only" Toggle navigation
+        span class="icon-bar"
+        span class="icon-bar"
+        span class="icon-bar"
+
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li = link_to 'Domů',        root_path(anchor: 'top')
+        li = link_to 'Cesta',       root_path(anchor: 'trip')
+        li = link_to 'O mně',       root_path(anchor: 'me')
+        li = link_to 'Podpořte mě', root_path(anchor: 'support')
+        li = link_to 'Blog',        blog_posts_path
