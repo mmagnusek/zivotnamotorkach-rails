@@ -1,5 +1,5 @@
-set :application, 'zivotnamotorkach-rails'
-set :repo_url,    'git@github.com:blueberryapps/zivotnamotorkach-rails.git'
+set :application, 'zivotnamotorkach.cz'
+set :repo_url,    'git@github.com:/mmagnusek/zivotnamotorkach-rails.git'
 set :branch,      'master'
 set :scm,         :git
 

@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    title= page_title
+    meta charset="utf-8"
+    = stylesheet_link_tag :admin, media: 'all'
+    = csrf_meta_tags
+
+  body class=body_class
+    .container
+      = render 'admin/menu'
+      = render 'application/flashes'
+      = yield
+
+    = javascript_include_tag :admin
+    = yield :javascript

@@ -50,6 +50,8 @@ GEM
       rails (>= 3.1)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
+    bootstrap-wysihtml5-rails (0.3.3.1)
+      railties (>= 3.0)
     builder (3.2.2)
     capistrano (3.0.1)
       i18n
@@ -272,6 +274,7 @@ DEPENDENCIES
   better_errors
   bootstrap-kaminari-views
   bootstrap-sass
+  bootstrap-wysihtml5-rails
   capistrano (~> 3.0.0)
   capistrano-bundler
   capistrano-rails

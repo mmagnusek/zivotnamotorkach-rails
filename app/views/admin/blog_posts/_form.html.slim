@@ -1,0 +1,9 @@
+= simple_form_for [:admin, @blog_post] do |f|
+
+  .form-inputs
+    = f.input :title
+    = f.input :slug
+    = f.input :body, input_html: { class: 'wysihtml5' }
+
+  .form-actions
+    = f.button :submit, class: 'btn-primary'
