@@ -4,11 +4,6 @@ body
   font-size: 16px
   line-height: 1.35
 
-@media (max-width: 767px)
-  body
-    padding-right: 0
-    padding-left: 0
-
 p, span
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
@@ -129,28 +124,28 @@ h3
 
 // Navigation
 // -------------------
-.navbar-inverse
-  text-align: center
-  width: 100%
-  background-color: transparent
-  border-color: transparent
+#navigation.navbar
+  .navbar-header, #navbar-menu
+    background-color: #c43003
 
-  .container
-    background: #c43003
-
-    .nav > li > a
-      color: #fff
+    li > a
       font-weight: 600
       text-transform: uppercase
-      font-size: 16px
+
+    li.dropdown
+      ul.dropdown-menu
+        margin-top: -1px
+
+        background-color: #c43003
+        li > a
+          color: $navbar-default-link-color
+
+          &:hover
+            background-color: $navbar-default-link-hover-bg
 
 @media (max-width: 979px)
   .navbar-fixed-top
     margin-bottom: 0
-
-@media (max-width: 979px)
-  .navbar-fixed-top, .navbar-fixed-bottom
-    position: absolute
 
 // Middle section
 // ----------------------
