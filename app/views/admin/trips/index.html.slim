@@ -1,0 +1,26 @@
+h1 Seznam cest
+
+= link_to 'New Trip', new_admin_trip_path, class: 'btn btn-primary'
+
+table.table.table-striped
+  thead
+    tr
+      th Název
+      th Začátek
+      th
+
+  tbody
+    - @trips.each do |trip|
+      tr
+        td = trip.title
+        td = h trip.begin_on
+        td
+          = link_to 'Show', [:admin, trip]
+          '
+          = link_to 'Edit', [:edit, :admin, trip]
+          '
+          - unless trip.archived_at?
+            => link_to 'Archive', [:archive, :admin, trip], method: :put
+          = link_to 'Destroy', [:admin, trip], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+.paginate_wrapper.text-center = paginate @trips

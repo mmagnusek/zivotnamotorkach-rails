@@ -4,6 +4,7 @@
     = f.input :title
     = f.input :slug
     = f.input :body, input_html: { class: 'wysihtml5' }
+    = f.association :trip
 
   .form-actions
     = f.button :submit, class: 'btn-primary'

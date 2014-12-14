@@ -18,5 +18,9 @@
 
 
 $(document).ready(function(){
-  $('.wysihtml5').wysihtml5();
+  $('.wysihtml5').wysihtml5({
+    toolbar: {
+      "html": true
+    }
+  });
 })

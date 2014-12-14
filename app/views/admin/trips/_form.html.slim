@@ -1,0 +1,7 @@
+= simple_form_for [:admin, @trip] do |f|
+  = f.input :title
+  = f.input :begin_on
+  = f.input :body, input_html: { class: 'wysihtml5' }
+  = f.input :display_on_homepage
+  = f.input :homepage_body, input_html: { rows: 10 }
+  = f.button :submit, class: 'btn-primary'

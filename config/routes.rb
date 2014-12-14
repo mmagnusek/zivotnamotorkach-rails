@@ -3,8 +3,12 @@ ZivotnamotorkachRails::Application.routes.draw do
 
   namespace :admin do
     resources :blog_posts
+    resources :trips do
+      put :archive, on: :member
+    end
   end
 
   resources :blog_posts, path: 'blog', only: [:index, :show]
+  resources :trips,      path: 'cesty', only: :show
   root to: 'root#index'
 end

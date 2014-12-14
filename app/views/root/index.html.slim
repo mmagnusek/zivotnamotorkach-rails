@@ -2,42 +2,14 @@
 #top.section
   .container
     .header
-      h1
-        | On the road
-        span.year
-          | 2013
-          span/
+      h1 Život na motorkách
       p
         strong Láká mě poznání nespoutané přírody a dobrosrdečných lidí.
-      p Míst na zemi, které zůstavají nedotčené moderní dobou rychle ubývá a proto jsem se rozhodl pro cestu z centra Evropy až do zemí, kde ještě převládá kočovný způsob života, kde příroda hraje hlavní roli v životě většiny obyvatel, místa jejichž historie sahá daleko před náš letopočet.
+      p Míst na zemi, které zůstavají nedotčené moderní dobou rychle ubývá a proto jsem se rozhodl využít všechen svůj volný čas cestováním z centra Evropy až do zemí, kde ještě převládá kočovný způsob života, kde příroda hraje hlavní roli v životě většiny obyvatel, místa jejichž historie sahá daleko před náš letopočet.
       a.btn.btn-default href="https://www.facebook.com/ZivotNaMotorkach" target="_blank"  Život na motorkách na FB
-    a.btn.btn-primary.btn-large href="#support" Podpořte mě
+    a.btn.btn-primary href="#support" Podpořte mě
 
-#trip.section
-  .container
-    .row
-      .col-sm-7
-        = image_tag image_path('bike.png'), alt: 'BMW R1200GS Adventure'
-      .col-sm-5
-        ul.list-unstyled.list-facts
-          li
-            h3 18 500 km
-            span ujetá vzdálenost na motorce
-          li
-            h3 980 litrů
-            span benzínu
-          li
-            h3 54 dní
-            span v sedle motorky
-
-#trip-desc
-  .desc
-    h3 Plán cesty
-    p
-      | Cestou hedvábné stezky na území nynějšího Uzbekistánu, přes jeho pouště a bývalá tržiště hedvábné stezky do Tadžikistánu a cestou zvanou Pamir Highway do Kyrgystánu. Dále pak přez největší vnitrozemský stát světa Kazachstán do Mongolska za kočovníky a nedotčenou přírodou.
-    .arrow
-  .gmap
-    = image_tag image_path('mapa.jpg'), alt: "Mapa Trasy z Náchoda do Mongolska"
+= raw Trip.first.homepage_body
 
 #me.section
   .container
