@@ -1,0 +1,24 @@
+// Navigation
+// -------------------
+#navigation.navbar
+  .navbar-header, #navbar-menu
+    background-color: #c43003
+
+    li > a
+      font-weight: 600
+      text-transform: uppercase
+
+    li.dropdown
+      ul.dropdown-menu
+        margin-top: -1px
+
+        background-color: #c43003
+        li > a
+          color: $navbar-default-link-color
+
+          &:hover
+            background-color: $navbar-default-link-hover-bg
+
+@media (max-width: 979px)
+  .navbar-fixed-top
+    margin-bottom: 0

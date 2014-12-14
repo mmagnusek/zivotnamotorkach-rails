@@ -14,9 +14,12 @@ html lang='cs'
 
 
   body class=body_class
+    = render 'application/menu'
     = render 'application/fb'
     = render 'application/flashes'
     = yield
+
+    = render 'application/sponsors_panel'
 
     = javascript_include_tag :application
     = yield :javascript

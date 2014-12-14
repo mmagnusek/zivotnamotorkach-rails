@@ -9,7 +9,9 @@ nav#navigation.navbar.navbar-default.navbar-fixed-top
 
     .collapse.navbar-collapse#navbar-menu
       ul.nav.navbar-nav
-        li = link_to 'Domů', root_path(anchor: 'top')
+        li = link_to 'Aktuálně',  root_path(anchor: 'current-trip')
+        li = link_to 'O mně',     root_path(anchor: 'me')
+
         li.dropdown
           = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
             | Cesty
@@ -18,7 +20,5 @@ nav#navigation.navbar.navbar-default.navbar-fixed-top
             - Trip.all.each do |trip|
               li = link_to trip.title, trip
 
-        li = link_to 'Cesta',       root_path(anchor: 'trip')
-        li = link_to 'O mně',       root_path(anchor: 'me')
-        li = link_to 'Podpořte mě', root_path(anchor: 'support')
-        li = link_to 'Blog',        blog_posts_path
+        li = link_to 'Sponzoři',  root_path(anchor: 'support')
+        li = link_to 'Blog',      blog_posts_path

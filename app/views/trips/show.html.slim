@@ -1,0 +1,11 @@
+- title @trip.title
+
+.section
+  .container
+    h1 = @trip.title
+    = @trip.body.html_safe
+
+    ul
+      - @trip.blog_posts.each do |blog_post|
+        li = link_to blog_post.title, blog_post
+
