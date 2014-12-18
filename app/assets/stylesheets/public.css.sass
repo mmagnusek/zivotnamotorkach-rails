@@ -1,21 +1,14 @@
-body
-  font-family: 'Roboto Condensed', 'Helvetica Neue', 'Arial', sans-serif
-  color: #626262
-  font-size: 16px
-  line-height: 1.35
-
 p, span
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
 
 h1
   color: #fff
-  font-size: 52px
   line-height: 1.4
   text-shadow: 1px 1px 5px rgba(0,0,0,0.6)
   font-weight: bold
 
 h2
-  color: #c43003
+  color: $red-color
   font-size: 36px
   font-weight: bold
 
@@ -24,6 +17,25 @@ h3
 
 .lead
   line-height: 26px
+
+nav + .container
+  margin-top: 50px
+
+.section
+  background-color: white
+  padding-top: 50px
+  padding-bottom: 50px
+
+  &:last-child
+    background-color: #f4f4f4
+
+@media (max-width: 767px)
+  .section
+    padding-left: 30px
+    padding-right: 30px
+
+#top + .section
+  background: #1f1f1f image-url('dark_leather.jpg') repeat 0 0
 
 // Year
 .year

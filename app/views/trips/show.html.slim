@@ -1,11 +1,26 @@
 - title @trip.title
+#top.section
+  .container
+    .header
+      h1 = @trip.title
+      p = raw @trip.description
+.section
+  .container
+    | ahoj
+    = raw @trip.body
+.section
+  .container
+    | ahoj
+    = raw @trip.body
+
+    = image_tag image_path("top/top-18.jpg"), width: '100%'
 
 .section
   .container
-    h1 = @trip.title
-    = @trip.body.html_safe
-
-    ul
+    h3 Články z cesty:
+    ul.list-unstyled
       - @trip.blog_posts.each do |blog_post|
-        li = link_to blog_post.title, blog_post
-
+        li
+          = link_to blog_post
+            => l blog_post.created_at.to_date
+            = blog_post.title

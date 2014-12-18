@@ -9,4 +9,7 @@ class BlogPost < ActiveRecord::Base
   validates :slug,  presence: true
   validates :body,  presence: true
 
+  def to_param
+    slug
+  end
 end

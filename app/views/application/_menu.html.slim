@@ -20,5 +20,5 @@ nav#navigation.navbar.navbar-default.navbar-fixed-top
             - Trip.all.each do |trip|
               li = link_to trip.title, trip
 
-        li = link_to 'Sponzoři',  root_path(anchor: 'support')
+        li = link_to 'Sponzoři',  sponsors_path
         li = link_to 'Blog',      blog_posts_path

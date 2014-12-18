@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141207153208) do
     t.string   "slug",                limit: 255
     t.date     "begin_on",                          null: false
     t.text     "homepage_body",       limit: 65535
+    t.text     "description",         limit: 65535
     t.text     "body",                limit: 65535
     t.boolean  "display_on_homepage", limit: 1
     t.datetime "archived_at"

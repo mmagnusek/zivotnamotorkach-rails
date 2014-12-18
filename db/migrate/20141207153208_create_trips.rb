@@ -5,6 +5,7 @@ class CreateTrips < ActiveRecord::Migration
       t.string    :slug,      uniq: true
       t.date      :begin_on,  null: false
       t.text      :homepage_body
+      t.text      :description
       t.text      :body
       t.boolean   :display_on_homepage
       t.datetime  :archived_at

@@ -10,5 +10,8 @@ ZivotnamotorkachRails::Application.routes.draw do
 
   resources :blog_posts, path: 'blog', only: [:index, :show]
   resources :trips,      path: 'cesty', only: :show
-  root to: 'root#index'
+
+  get :sponsors, to: 'pages#sponsors', path: 'sponzori'
+
+  root to: 'pages#homepage'
 end

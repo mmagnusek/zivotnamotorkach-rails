@@ -14,10 +14,9 @@ html lang='cs'
 
 
   body class=body_class
-    = render 'application/menu'
     = render 'application/fb'
-    = render 'application/flashes'
-    = yield
+    = render 'application/menu'
+    .article = yield
 
     = render 'application/sponsors_panel'
 

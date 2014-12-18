@@ -29,6 +29,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'guard-rspec'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 group :development, :test do

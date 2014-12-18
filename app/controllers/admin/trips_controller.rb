@@ -52,7 +52,7 @@ class Admin::TripsController < AdminController
   def trip_params
     params.require(:trip).permit(
       :archived_at, :begin_on, :body, :display_on_homepage, :homepage_body,
-      :title
+      :title, :description
     )
   end
 end

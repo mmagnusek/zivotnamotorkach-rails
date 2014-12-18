@@ -8,14 +8,16 @@
       a.btn.btn-default href="https://www.facebook.com/ZivotNaMotorkach" target="_blank"  Život na motorkách na FB
     a.btn.btn-primary href="#support" Podpořte mě
 
-#current-trip = raw Trip.first.homepage_body
+= raw Trip.first.homepage_body
 
 #me.section
   .container
     .row
       .col-md-4
         h2 Martin Magnusek
-        p.lead 26, inženýr, IT odborník, trochu workoholik, flegmatik a milovník motorek.
+        p.lead
+          = ((Time.now.to_i - Time.parse('30. 5. 1987').to_i) / 86400 / 365.25).to_i
+          | , inženýr, IT odborník, trochu workoholik, flegmatik a milovník motorek.
       .col-md-8
         = image_tag image_path('magnusek.jpg')
         p Aktivně jezdím od 15 let. Se vším co má motor jsem procestoval většinu Evropy. Nejdelší cestou na motorce byla výprava do Istanbulu a zpět se zastávkami v Rumunsku, Bulharsku, Turecku, Řecku, Makedonii, Albánii a Černé Hoře.
