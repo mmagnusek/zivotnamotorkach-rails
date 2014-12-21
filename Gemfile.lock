@@ -149,10 +149,10 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
-    newrelic_rpm (3.7.0.177)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    pg (0.17.1)
     poltergeist (1.5.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -295,7 +295,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2
-  newrelic_rpm (>= 3.6.7)
+  pg
   poltergeist (>= 1.4.0)
   pry-rails
   quiet_assets

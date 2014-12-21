@@ -38,7 +38,7 @@ group :development, :test do
 end
 
 group :staging, :production do
-  gem 'newrelic_rpm', '>= 3.6.7'
+  gem 'pg'
 end
 
 group :test do
