@@ -13,3 +13,23 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require fancybox
+
+
+$(document).ready(function() {
+  $('.fancybox').fancybox({
+    prevEffect : 'none',
+    nextEffect : 'none',
+
+    closeBtn  : false,
+    arrows    : false,
+    nextClick : true,
+
+    helpers : {
+      thumbs : {
+        width  : 50,
+        height : 50
+      }
+    }
+  });
+});

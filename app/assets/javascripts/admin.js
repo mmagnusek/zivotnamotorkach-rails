@@ -21,6 +21,9 @@ $(document).ready(function(){
   $('.wysihtml5').wysihtml5({
     toolbar: {
       "html": true
+    },
+    parser: function(html) {
+      return html;
     }
   });
 })

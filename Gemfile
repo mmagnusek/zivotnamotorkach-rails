@@ -9,6 +9,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'coffee-rails'
 gem 'devise'
 gem 'dotenv-rails'
+gem 'fancybox2-rails', '~> 0.2.8'
 gem 'flutie'
 gem 'font-awesome-sass', '~> 4.2.0'
 gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
