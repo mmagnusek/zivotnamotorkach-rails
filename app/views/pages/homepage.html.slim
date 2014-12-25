@@ -8,7 +8,8 @@
       a.btn.btn-default href="https://www.facebook.com/ZivotNaMotorkach" target="_blank"  Život na motorkách na FB
     a.btn.btn-primary href="#support" Podpořte mě
 
-= raw Trip.first.homepage_body
+- if @current_trip
+  = raw @current_trip.homepage_body
 
 #me.section
   .container
