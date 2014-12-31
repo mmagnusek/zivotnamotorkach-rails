@@ -4,16 +4,8 @@
     .header
       h1 = @trip.title
       p = raw @trip.description
-.section
-  .container
-    | ahoj
-    = raw @trip.body
-.section
-  .container
-    | ahoj
-    = raw @trip.body
 
-    = image_tag image_path("top/top-18.jpg"), width: '100%'
+= raw @trip.body
 
 .section
   .container
