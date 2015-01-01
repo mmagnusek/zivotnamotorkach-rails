@@ -3,7 +3,7 @@ class BlogPost < ActiveRecord::Base
 
   belongs_to :trip
 
-  default_scope -> { order("created_at DESC") }
+  scope :newest_first, -> { order("created_at DESC") }
 
   validates :title, presence: true
   validates :slug,  presence: true

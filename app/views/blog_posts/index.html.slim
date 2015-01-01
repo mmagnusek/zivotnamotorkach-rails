@@ -4,10 +4,12 @@
   .container
     .span8.offset2
       h1 Články z cesty
-      .fb-like data-font="verdana" data-href="https://www.facebook.com/ZivotNaMotorkach" data-layout="button_count" data-send="false" data-show-faces="true" data-width="450"
+      = render 'fb_like'
       .blog_posts
         - @blog_posts.each do |blog_post|
           .blog_post
             = link_to blog_post_path(blog_post.slug) do
               = blog_post.created_at.strftime("%d. %m. %Y")
               =< blog_post.title
+
+        = paginate @blog_posts, theme: 'twitter-bootstrap-3'

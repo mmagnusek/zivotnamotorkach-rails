@@ -5,13 +5,5 @@
     h1 = @blog_post.title
     p
       span.date = @blog_post.created_at.strftime("%d. %m. %Y")
-    .social
-      a#fb-share href="#" onclick="
-              window.open(
-                'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
-                'facebook-share-dialog',
-                'width=626,height=436');
-              return false;"
-        | Share
-      .fb-like data-layout="button_count" data-send="false" data-show-faces="true" data-width="450"
+    p = render 'fb_share'
     = raw @blog_post.body
