@@ -6,6 +6,8 @@ ZivotnamotorkachRails::Application.routes.draw do
     resources :trips do
       put :archive, on: :member
     end
+
+    root to: redirect('/admin/blog_posts')
   end
 
   resources :blog_posts, path: 'blog', only: [:index, :show]
