@@ -1,0 +1,9 @@
+h1 New asset
+
+= simple_form_for [:admin, @asset] do |f|
+  = f.input :title
+  = f.association :trip
+  = f.input :file
+  = f.button :submit, class: 'btn-primary'
+
+= link_to 'Back', admin_assets_path

@@ -11,9 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207153208) do
+ActiveRecord::Schema.define(version: 20150113074141) do
 
-  create_table "blog_posts", force: true do |t|
+  create_table "assets", force: :cascade do |t|
+    t.string   "title",             limit: 255
+    t.integer  "trip_id",           limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
+    t.datetime "file_updated_at"
+  end
+
+  add_index "assets", ["trip_id"], name: "index_assets_on_trip_id", using: :btree
+
+  create_table "blog_posts", force: :cascade do |t|
     t.string   "title",      limit: 255,   null: false
     t.string   "slug",       limit: 255,   null: false
     t.text     "body",       limit: 65535
@@ -25,7 +38,7 @@ ActiveRecord::Schema.define(version: 20141207153208) do
   add_index "blog_posts", ["slug"], name: "index_blog_posts_on_slug", using: :btree
   add_index "blog_posts", ["trip_id"], name: "index_blog_posts_on_trip_id", using: :btree
 
-  create_table "trips", force: true do |t|
+  create_table "trips", force: :cascade do |t|
     t.string   "title",               limit: 255,   null: false
     t.string   "slug",                limit: 255
     t.date     "begin_on",                          null: false
