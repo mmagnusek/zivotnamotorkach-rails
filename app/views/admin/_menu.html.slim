@@ -11,7 +11,8 @@ nav.navbar.navbar-default role="navigation"
     div.collapse.navbar-collapse
       ul.nav.navbar-nav
         li= link_to 'Články', [:admin, :blog_posts]
-        li= link_to 'Cesty', [:admin, :trips]
+        li= link_to 'Cesty',  [:admin, :trips]
+        li= link_to 'Assety', [:admin, :assets]
       - if current_user
         ul.nav.navbar-nav.navbar-right
           li.dropdown

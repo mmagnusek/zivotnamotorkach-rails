@@ -1,0 +1,24 @@
+h1 Seznam assetů
+
+= link_to 'New Asset', new_admin_asset_path, class: 'btn btn-primary'
+
+table.table.table-striped
+  thead
+    tr
+      th Název
+      th Cesta
+      th Náhled
+      th
+
+  tbody
+    - @assets.each do |asset|
+      tr
+        td = asset.title
+        td = asset.trip
+        td = image_tag asset.file.url(:micro)
+        td
+          = link_to 'Edit', [:edit, :admin, asset]
+          '
+          = link_to 'Destroy', [:admin, asset], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+.paginate_wrapper.text-center = paginate @assets

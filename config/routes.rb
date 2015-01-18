@@ -2,6 +2,7 @@ ZivotnamotorkachRails::Application.routes.draw do
   devise_for :users
 
   namespace :admin do
+    resources :assets
     resources :blog_posts
     resources :trips do
       put :archive, on: :member

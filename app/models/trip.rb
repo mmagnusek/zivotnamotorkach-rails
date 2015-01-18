@@ -10,4 +10,8 @@ class Trip < ActiveRecord::Base
   validates :homepage_body, presence: true, if: :display_on_homepage?
 
   scope :ordered, -> { order(:begin_on) }
+
+  def to_s
+    title
+  end
 end
