@@ -17,8 +17,6 @@ table.table.table-striped
         td = asset.trip
         td = image_tag asset.file.url(:micro)
         td
-          = link_to 'Show', [:admin, asset]
-          '
           = link_to 'Edit', [:edit, :admin, asset]
           '
           = link_to 'Destroy', [:admin, asset], data: {:confirm => 'Are you sure?'}, :method => :delete
