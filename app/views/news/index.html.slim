@@ -1,0 +1,42 @@
+- title 'Novinky'
+
+.section#news
+  .container
+
+    .row
+      .col-md-8
+        h1 Novinky
+
+        - @news.each do |item|
+          .row
+            .col-md-4.image
+              - if item["picture"]
+                = image_tag item["picture"], class: 'thumbnail'
+            .col-md-7.message
+              span.small
+                - created_at = Time.parse(item["created_time"])
+                => l created_at.to_date
+                | - před
+                =< time_ago_in_words created_at
+                =< image_tag item['icon'] if item['icon']
+              p = item["message"]
+              - if item['link']
+                - service = URI.parse(item['link']).hostname.gsub(/www\./i, '')
+                = link_to service.capitalize, item['link'], target: '_blank'
+          hr
+
+      .col-md-4
+        h1 Události
+
+        - if @events.any?
+          - @events.each do |event|
+            h3 = event["name"]
+            p
+              | Místo:
+              =< event["location"]
+            span
+              | Čas:
+              =< l Time.parse(event["start_time"]), format: :long
+            hr
+        - else
+          p Žádné naplánované události.

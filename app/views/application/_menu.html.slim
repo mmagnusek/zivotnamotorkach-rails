@@ -9,8 +9,9 @@ nav#navigation.navbar.navbar-default.navbar-fixed-top
 
     .collapse.navbar-collapse#navbar-menu
       ul.nav.navbar-nav
-        li = link_to 'Aktuálně',  root_path(anchor: 'current-trip')
+        li = link_to 'Úvod',      root_path
         li = link_to 'O mně',     root_path(anchor: 'me')
+        li = link_to 'Aktuálně',  news_index_path
 
         li.dropdown
           = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do

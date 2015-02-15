@@ -16,6 +16,7 @@ gem 'font-awesome-sass', '~> 4.2.0'
 gem 'friendly_id', '~> 5.0.0' # Note: You MUST use 5.0.0 or greater for Rails 4.0+
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'koala'
 gem 'mysql2'
 gem 'paperclip'
 gem 'rails', '~> 4.2.0'

@@ -11,8 +11,9 @@ ZivotnamotorkachRails::Application.routes.draw do
     root to: redirect('/admin/blog_posts')
   end
 
-  resources :blog_posts, path: 'blog', only: [:index, :show]
-  resources :trips,      path: 'cesty', only: :show
+  resources :blog_posts, path: 'blog',    only: [:index, :show]
+  resources :news,       path: 'novinky', only: :index
+  resources :trips,      path: 'cesty',   only: :show
 
   get :sponsors, to: 'pages#sponsors', path: 'sponzori'
 
