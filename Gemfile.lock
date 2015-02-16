@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.7)
     airbrake (4.1.0)
       builder
       multi_json
@@ -101,6 +102,8 @@ GEM
       railties (>= 3.0.0)
     fancybox2-rails (0.2.8)
       railties (>= 3.1.0, < 5.0)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
     flutie (2.0.0)
     font-awesome-sass (4.2.2)
@@ -129,6 +132,10 @@ GEM
     kaminari (0.16.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    koala (1.11.1)
+      addressable
+      faraday
+      multi_json
     listen (2.4.0)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
@@ -143,6 +150,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.5.0)
     multi_json (1.10.1)
+    multipart-post (2.0.0)
     mysql2 (0.3.17)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
@@ -287,6 +295,7 @@ DEPENDENCIES
   guard-rspec
   jquery-rails
   kaminari
+  koala
   mysql2
   paperclip
   pg
