@@ -34,7 +34,7 @@
               =< event["location"]
             span
               | Čas:
-              =< l Time.parse(event["start_time"]), format: :long
+              =< l Time.zone.parse(event["start_time"]), format: :long
             hr
         - else
           p Žádné naplánované události.
