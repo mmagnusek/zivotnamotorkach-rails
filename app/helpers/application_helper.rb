@@ -7,4 +7,11 @@ module ApplicationHelper
     options.reverse_merge!( theme: 'twitter-bootstrap-3' )
     super(objects, options)
   end
+
+  def link_to_news(item)
+    url = item['link']
+    url = "https://www.facebook.com#{url}" if url.start_with?('/')
+    service = URI.parse(url).hostname.gsub(/www\./i, '')
+    link_to service.capitalize, url, target: '_blank'
+  end
 end

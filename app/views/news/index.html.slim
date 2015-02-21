@@ -20,9 +20,7 @@
                 =< time_ago_in_words created_at
                 =< image_tag item['icon'] if item['icon']
               p = item["message"]
-              - if item['link']
-                - service = URI.parse(item['link']).hostname.gsub(/www\./i, '')
-                = link_to service.capitalize, item['link'], target: '_blank'
+              = link_to_news item if item['link']
           hr
 
       .col-md-4
