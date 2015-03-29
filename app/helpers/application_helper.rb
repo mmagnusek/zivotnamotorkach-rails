@@ -3,6 +3,11 @@ module ApplicationHelper
     content_for(:page_title, text)
   end
 
+  def background_image(image = nil)
+    @background_image = image if image
+    @background_image || rand(26)
+  end
+
   def paginate(objects, options = {})
     options.reverse_merge!( theme: 'twitter-bootstrap-3' )
     super(objects, options)
