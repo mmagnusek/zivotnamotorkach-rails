@@ -4,6 +4,9 @@ class Trip < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   has_many :blog_posts
+  has_many :links
+
+  accepts_nested_attributes_for :links, allow_destroy: true
 
   validates :title,     presence: true
   validates :begin_on,  presence: true
