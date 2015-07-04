@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329102651) do
+ActiveRecord::Schema.define(version: 20150704135233) do
 
   create_table "assets", force: :cascade do |t|
     t.string   "title",             limit: 255
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20150329102651) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trip_id",    limit: 4
+    t.string   "etag",       limit: 255
+    t.string   "blogger_id", limit: 255
   end
 
   add_index "blog_posts", ["slug"], name: "index_blog_posts_on_slug", using: :btree
@@ -57,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150329102651) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.integer  "background_image",    limit: 4
+    t.string   "label",               limit: 255
   end
 
   create_table "users", force: :cascade do |t|
