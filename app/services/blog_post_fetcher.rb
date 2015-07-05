@@ -2,6 +2,8 @@ require 'google/api_client'
 
 class BlogPostFetcher
 
+  ATTRIBUTES = %w(id title content labels etag published location)
+
   def call
     response = client.execute(
       http_method: :get,
@@ -9,8 +11,7 @@ class BlogPostFetcher
     )
 
     Array(JSON.parse(response.body)['items']).map do |blog_post|
-      attributes = blog_post.slice('id', 'title', 'content', 'labels', 'etag', 'published')
-      BlogPost.create_or_update_from_blogger attributes
+      BlogPost.create_or_update_from_blogger blog_post.slice(*ATTRIBUTES)
     end
   end
 

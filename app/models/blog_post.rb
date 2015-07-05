@@ -3,6 +3,8 @@ class BlogPost < ActiveRecord::Base
 
   belongs_to :trip
 
+  serialize :location, Hash
+
   scope :newest_first, -> { order("created_at DESC") }
 
   validates :title, presence: true
@@ -14,9 +16,10 @@ class BlogPost < ActiveRecord::Base
     if blog_post
       if blog_post.etag != attributes['etag']
         blog_post.update_attributes(
-          title: attributes['title'],
-          body:  attributes['content'],
-          etag:  attributes['etag']
+          title:    attributes['title'],
+          body:     attributes['content'],
+          etag:     attributes['etag'],
+          location: attributes['location']
         )
       end
     else
@@ -30,6 +33,7 @@ class BlogPost < ActiveRecord::Base
         blog_post.title      = attributes['title']
         blog_post.body       = attributes['content']
         blog_post.etag       = attributes['etag']
+        blog_post.location   = attributes['location']
         blog_post.slug       = "#{published_at.to_date.to_s}-#{attributes['title'].parameterize}"
         blog_post.created_at = published_at
       end

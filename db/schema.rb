@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150704135233) do
     t.integer  "trip_id",    limit: 4
     t.string   "etag",       limit: 255
     t.string   "blogger_id", limit: 255
+    t.text     "location",   limit: 65535
   end
 
   add_index "blog_posts", ["slug"], name: "index_blog_posts_on_slug", using: :btree
