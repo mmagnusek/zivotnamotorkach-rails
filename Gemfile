@@ -26,6 +26,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form', '~> 3.1.0'
 gem 'slim-rails'
 gem 'uglifier', '>= 1.3.0'
+gem 'google-api-client'
 
 group :development do
   gem 'better_errors'
