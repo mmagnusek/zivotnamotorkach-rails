@@ -5,20 +5,33 @@
     h1 Hlavním partner
     .row
       .col-md-4
+        p.text-justify Díky moc za projevenou důvěru. Bushman mě pro cestu do Afriky oblékl a já doufám, že jejich důvěru nezklamu.
+      .col-md-4.text-center
+        = link_to 'http://www.bushman.cz', alt: 'Bushman', target: '_blank'
+          = image_tag image_path('sponsors/bushman.jpg')
+      .col-md-4
+    .row
+      .col-md-4
         p.text-justify Na mých cestách mám to štěstí, že se mohu spolehnout na outdoorové a campingového vybavení od českého výrobce Pinguin.
       .col-md-4.text-center
-        = link_to 'http://www.pinguincz.cz', alt: 'Pinguin'
+        = link_to 'http://www.pinguincz.cz', alt: 'Pinguin', target: '_blank'
           = image_tag image_path('sponsors/pinguin.png')
       .col-md-4
 
     h3 Další partneři
     .row
       .col-md-4
+        p.text-justify Úprava a příprava motocyklu ČZ 175 byla v režii brněnské firmu MotoKenny.
+      .col-md-4.text-center
+        = link_to 'http://www.motokenny.cz', alt: 'MotoKenny', target: '_blank'
+          = image_tag image_path('sponsors/kenny.png')
+    .row.top-15
+      .col-md-4
         p.text-justify Inspirací a oporou je pro mne Čajovna u Bílého Draka, není nad pocit kdy se po dokončené cestě vrátíte "domů" a dáte si čaj a dýmku s přáteli.
       .col-md-4.text-center
-        = link_to 'http://www.bilydrak.cz', alt: 'Čajovna u Bílého Draka'
+        = link_to 'http://www.bilydrak.cz', alt: 'Čajovna u Bílého Draka', target: '_blank'
           = image_tag image_path('sponsors/cajovna.png')
-        = link_to 'http://www.drumrelax.cz/', alt: 'Drum Relax'
+        = link_to 'http://www.drumrelax.cz/', alt: 'Drum Relax', target: '_blank'
           = image_tag image_path('sponsors/drumrelax.png')
       .col-md-4
     .row.top-15
