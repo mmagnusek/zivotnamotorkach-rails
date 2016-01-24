@@ -1,0 +1,9 @@
+cs:
+  activerecord:
+    attributes:
+      postcard:
+        name: 'Jméno a příjmení'
+        street: 'Ulice a číslo popisné'
+        city: 'Město'
+        zip_code: 'PSČ'
+        country_code: 'Preferovaná země'

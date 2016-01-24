@@ -12,6 +12,7 @@ ZivotnamotorkachRails::Application.routes.draw do
   end
 
   resources :blog_posts, path: 'blog',    only: [:index, :show]
+  resources :postcards,  path: 'pohled',  only: [:new, :create]
   resources :news,       path: 'novinky', only: :index
   resources :trips,      path: 'cesty',   only: :show
 
