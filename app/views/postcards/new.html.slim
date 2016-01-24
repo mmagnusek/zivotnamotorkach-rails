@@ -1,0 +1,21 @@
+- title 'Pohled z cesty'
+
+.section
+  .container
+    = render 'flashes'
+
+    h1 Chci dostat pohlednici.
+
+    .row
+      .col-md-6
+        p Stačí vyplnit tento kraťoučký formulář, a pokud Vás nebude mnoho, tak budu průběžně posílat pohledy z různých zemí.
+
+        = simple_form_for @postcard, wrapper: :horizontal_form, html: { class: 'form-horizontal' } do |form|
+          = form.input :name
+          = form.input :street
+          = form.input :city
+          = form.input :zip_code
+          .form-group
+            .col-sm-offset-3.col-sm-9
+              = recaptcha_tags
+              = form.button :submit

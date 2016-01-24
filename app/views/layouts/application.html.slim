@@ -14,13 +14,13 @@ html lang='cs'
 
 
   body class=body_class
-    = render 'application/fb'
-    = render 'application/menu'
+    = render 'fb'
+    = render 'menu'
     .article = yield
 
-    = render 'application/sponsors_panel' unless params[:action] == 'sponsors'
+    = render 'sponsors_panel' unless params[:action] == 'sponsors'
 
     = javascript_include_tag :application
     = yield :javascript
-    = render 'application/analytics'
+    = render 'analytics'
 

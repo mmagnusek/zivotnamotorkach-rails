@@ -1,0 +1,4 @@
+cs:
+  postcards:
+    create:
+      success: 'Žádost o pohled úspěšně uložena.'
