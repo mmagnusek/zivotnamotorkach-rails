@@ -1,0 +1,26 @@
+h1 Pohlednice
+
+table.table.table-striped
+  thead
+    tr
+      th Jméno
+      th Ulice
+      th Město
+      th PSČ
+      th
+
+  tbody
+    - @postcards.each do |postcard|
+      tr
+        td = postcard.name
+        td = postcard.street
+        td = postcard.city
+        td = postcard.zip_code
+        td
+        td
+          - if postcard.sent_at?
+            = l postcard.sent_at, format: :short
+          - else
+            = link_to 'Poslat', [:post, :admin, postcard], method: :put
+
+.paginate_wrapper.text-center = paginate @postcards
