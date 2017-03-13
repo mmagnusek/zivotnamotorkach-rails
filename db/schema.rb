@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,84 +10,81 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124150541) do
+ActiveRecord::Schema.define(version: 20170313180627) do
 
-  create_table "assets", force: :cascade do |t|
-    t.string   "title",             limit: 255
-    t.integer  "trip_id",           limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
+  create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "title"
+    t.integer  "trip_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
     t.datetime "file_updated_at"
+    t.index ["trip_id"], name: "index_assets_on_trip_id", using: :btree
   end
 
-  add_index "assets", ["trip_id"], name: "index_assets_on_trip_id", using: :btree
-
-  create_table "blog_posts", force: :cascade do |t|
-    t.string   "title",      limit: 255,   null: false
-    t.string   "slug",       limit: 255,   null: false
+  create_table "blog_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "title",                    null: false
+    t.string   "slug",                     null: false
     t.text     "body",       limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "trip_id",    limit: 4
-    t.string   "etag",       limit: 255
-    t.string   "blogger_id", limit: 255
+    t.integer  "trip_id"
+    t.string   "etag"
+    t.string   "blogger_id"
     t.text     "location",   limit: 65535
+    t.index ["slug"], name: "index_blog_posts_on_slug", using: :btree
+    t.index ["trip_id"], name: "index_blog_posts_on_trip_id", using: :btree
   end
 
-  add_index "blog_posts", ["slug"], name: "index_blog_posts_on_slug", using: :btree
-  add_index "blog_posts", ["trip_id"], name: "index_blog_posts_on_trip_id", using: :btree
-
-  create_table "links", force: :cascade do |t|
-    t.integer "trip_id", limit: 4
-    t.integer "kind",    limit: 4,     default: 0
-    t.string  "title",   limit: 255
+  create_table "links", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.integer "trip_id"
+    t.integer "kind",                  default: 0
+    t.string  "title"
     t.text    "url",     limit: 65535
   end
 
-  create_table "postcards", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
-    t.string   "street",     limit: 255
-    t.string   "city",       limit: 255
-    t.string   "zip_code",   limit: 255
+  create_table "postcards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "name",       null: false
+    t.string   "street"
+    t.string   "city"
+    t.string   "zip_code"
     t.datetime "sent_at"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "trips", force: :cascade do |t|
-    t.string   "title",               limit: 255,   null: false
-    t.string   "slug",                limit: 255
+  create_table "trips", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "title",                             null: false
+    t.string   "slug"
     t.date     "begin_on",                          null: false
     t.text     "homepage_body",       limit: 65535
     t.text     "description",         limit: 65535
     t.text     "body",                limit: 65535
-    t.boolean  "display_on_homepage", limit: 1
+    t.boolean  "display_on_homepage"
     t.datetime "archived_at"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.integer  "background_image",    limit: 4
-    t.string   "label",               limit: 255
+    t.integer  "background_image"
+    t.string   "label"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
