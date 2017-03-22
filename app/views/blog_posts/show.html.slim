@@ -9,4 +9,5 @@
           span.location = @blog_post.location['name']
 
     p = render 'fb_share'
-    = raw @blog_post.body
+    .row
+      .col-sm-8 = raw @blog_post.body
