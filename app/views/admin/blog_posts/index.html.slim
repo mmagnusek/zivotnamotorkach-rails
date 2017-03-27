@@ -15,8 +15,11 @@ table.table.table-striped
         td = blog_post.title
         td = blog_post.slug
         td
-          = link_to 'Show', [:admin, blog_post]
+          = link_to 'Show', blog_post
           '
+          - unless blog_post.published?
+            = link_to 'Publikovat', [:publish, :admin, blog_post], method: :put
+            '
           = link_to 'Edit', [:edit, :admin, blog_post]
           '
           = link_to 'Destroy', [:admin, blog_post], data: {:confirm => 'Are you sure?'}, :method => :delete

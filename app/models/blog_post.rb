@@ -6,6 +6,7 @@ class BlogPost < ActiveRecord::Base
   serialize :location, Hash
 
   scope :newest_first, -> { order("created_at DESC") }
+  scope :published,    -> { where("published_at < NOW()") }
 
   validates :title, presence: true
   validates :slug,  presence: true
@@ -38,6 +39,10 @@ class BlogPost < ActiveRecord::Base
         blog_post.created_at = published_at
       end
     end
+  end
+
+  def published?
+    published_at?
   end
 
   def to_param
