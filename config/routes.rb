@@ -3,7 +3,9 @@ ZivotnamotorkachRails::Application.routes.draw do
 
   namespace :admin do
     resources :assets
-    resources :blog_posts
+    resources :blog_posts do
+      put :publish, on: :member
+    end
     resources :postcards, only: [:index] do
       put :post, on: :member
     end

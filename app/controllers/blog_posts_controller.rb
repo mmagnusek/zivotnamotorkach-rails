@@ -1,6 +1,6 @@
 class BlogPostsController < ApplicationController
   def index
-    @blog_posts = BlogPost.newest_first.page(params[:page])
+    @blog_posts = BlogPost.published.newest_first.page(params[:page])
   end
 
   def show

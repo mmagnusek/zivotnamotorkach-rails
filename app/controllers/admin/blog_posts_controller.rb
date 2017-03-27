@@ -1,5 +1,5 @@
 class Admin::BlogPostsController < AdminController
-  before_action :set_admin_blog_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_blog_post, except: [:index, :new, :create]
 
   def index
     @blog_posts = BlogPost.page(params[:page])
@@ -31,6 +31,11 @@ class Admin::BlogPostsController < AdminController
     else
       render :edit
     end
+  end
+
+  def publish
+    @blog_post.touch(:published_at)
+    redirect_to admin_blog_posts_url, notice: 'Blog post was successfully published.'
   end
 
   def destroy

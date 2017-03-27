@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170313180627) do
+ActiveRecord::Schema.define(version: 20170327205827) do
 
   create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
     t.string   "title"
@@ -25,15 +25,16 @@ ActiveRecord::Schema.define(version: 20170313180627) do
   end
 
   create_table "blog_posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
-    t.string   "title",                    null: false
-    t.string   "slug",                     null: false
-    t.text     "body",       limit: 65535
+    t.string   "title",                      null: false
+    t.string   "slug",                       null: false
+    t.text     "body",         limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "trip_id"
     t.string   "etag"
     t.string   "blogger_id"
-    t.text     "location",   limit: 65535
+    t.text     "location",     limit: 65535
+    t.datetime "published_at"
     t.index ["slug"], name: "index_blog_posts_on_slug", using: :btree
     t.index ["trip_id"], name: "index_blog_posts_on_trip_id", using: :btree
   end
