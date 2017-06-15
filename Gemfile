@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'koala'
 gem 'nested_form'
 gem 'paperclip'
+gem 'pg'
 gem 'rails', '~> 5.0.1'
 gem 'recaptcha', require: 'recaptcha/rails'
 gem 'sass-rails'
@@ -34,7 +35,6 @@ end
 group :development do
   gem 'better_errors'
   gem 'guard-rspec'
-  gem 'mysql2'
   gem 'pry-rails'
 end
 
@@ -45,7 +45,6 @@ end
 
 group :staging, :production do
   gem 'newrelic_rpm'
-  gem 'pg'
   gem 'rails_12factor'
   gem 'uglifier', '>= 1.3.0'
 end

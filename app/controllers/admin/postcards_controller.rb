@@ -1,6 +1,6 @@
 class Admin::PostcardsController < AdminController
   def index
-    @postcards = Postcard.page(params[:page])
+    @postcards = Postcard.page(params[:page]).ordered
   end
 
   def post
