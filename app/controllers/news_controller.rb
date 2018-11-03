@@ -9,8 +9,8 @@ class NewsController < ApplicationController
   def facebook_data
     Rails.cache.fetch 'news', expires_in: 5.minutes do
       [
-        graph.graph_call('297942373675608/feed').select{|i| i['message']},
-        graph.graph_call('297942373675608/events')
+        graph.get_connection('297942373675608', 'feed', fields: 'icon,picture,message,created_time,link'),
+        graph.get_connection('297942373675608', 'events', time_filter: 'upcoming')
       ]
     end
   end
