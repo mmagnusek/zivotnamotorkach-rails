@@ -11,9 +11,11 @@ html lang='cs'
     = render 'application/top_background_image'
     = csrf_meta_tags
     = favicon_link_tag
+    = render 'gtm_head'
 
 
   body class=body_class
+    = render 'gtm_body'
     = render 'fb'
     = render 'menu'
     .article = yield
@@ -22,5 +24,3 @@ html lang='cs'
 
     = javascript_include_tag :application
     = yield :javascript
-    = render 'analytics'
-
