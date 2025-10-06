@@ -1,0 +1,136 @@
+# This reusable workflow synthesizes and uploads a CDK template with diff output
+name: ⚗️ CDK Synth
+
+on:
+  workflow_call:
+    inputs:
+      aws_region:
+        required: true
+        type: string
+        description: 'AWS region for deployment'
+      iam_role:
+        required: true
+        type: string
+        description: 'IAM role ARN to assume for AWS operations'
+      stack_name:
+        required: false
+        type: string
+        description: 'Name of the CDK stack to diff (default: auto-detect)'
+        default: ''
+      npm_scope:
+        required: false
+        type: string
+        description: 'NPM scope for private packages (default: @songtradr)'
+        default: '@songtradr'
+      comment_on_pr:
+        required: false
+        type: boolean
+        description: 'Whether to comment on PR with diff output (default: true)'
+        default: true
+
+    outputs:
+      cdk-output-path:
+        description: 'Path to the synthesized CDK output'
+        value: ${{ jobs.cdk-synth.outputs.cdk-output-path }}
+      diff-output:
+        description: 'CDK diff output for use in other workflows'
+        value: ${{ jobs.cdk-synth.outputs.diff-output }}
+
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        required: true
+        description: 'AWS access key ID'
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+        description: 'AWS secret access key'
+
+env:
+  NODE_ENV: test
+
+jobs:
+  cdk-synth:
+    name: CDK Synth
+    runs-on: ubuntu-latest
+    outputs:
+      cdk-output-path: ${{ steps.cdk-synth-step.outputs.cdk-output-path }}
+      diff-output: ${{ steps.cdk-diff-step.outputs.diff-output }}
+
+    steps:
+      - name: ⬇️ Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: ⎔ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          registry-url: "https://npm.pkg.github.com"
+          node-version-file: ".nvmrc"
+          scope: ${{ inputs.npm_scope }}
+          always-auth: true
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
+
+      - name: ⚙️ Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.aws_region }}
+          role-to-assume: ${{ inputs.iam_role }}
+          role-skip-session-tagging: true
+
+      - name: 🏗️ Synthesize CDK
+        id: cdk-synth-step
+        run: |
+          pnpm cdk context --clear
+          pnpm cdk synth
+          echo "cdk-output-path=cdk.out" >> $GITHUB_OUTPUT
+
+      - name: 🏃 Run AWS CDK diff
+        id: cdk-diff-step
+        run: |
+          # Auto-detect stack name if not provided
+          if [ -z "${{ inputs.stack_name }}" ]; then
+            STACK_NAME=$(find cdk.out -name "*.template.json" | head -1 | xargs basename | sed 's/\.template\.json$//')
+          else
+            STACK_NAME="${{ inputs.stack_name }}"
+          fi
+
+          # Run CDK diff and capture output
+          script -q -c "pnpm cdk diff --app 'cdk.out' $STACK_NAME" output.log && \
+          sed 's/\x1b\[[0-9;]*m//g' output.log | \
+          sed -n '/Stack '$STACK_NAME'/,/Number of stacks with differences: [0-9]*/p' | \
+          sed '/Number of stacks with differences: [0-9]*/q' > final_output.log
+
+          # Output the diff for use in other steps
+          echo "diff-output<<EOF" >> $GITHUB_OUTPUT
+          cat final_output.log >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: ✍️ PR comment with diff
+        if: github.event_name == 'pull_request' && inputs.comment_on_pr == 'true'
+        continue-on-error: true
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            #### CDK Diff
+            <details>
+              <summary>Show diff</summary>
+
+              ```
+              ${{ steps.cdk-diff-step.outputs.diff-output }}```
+
+            </details>
+          comment_tag: diff-output
+
+      - name: 📦 Upload CDK Output
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdk-output-${{ github.sha }}
+          path: cdk.out
+          retention-days: 1
